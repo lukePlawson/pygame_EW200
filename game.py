@@ -1,5 +1,3 @@
-import pygame
-
 # Example file showing a basic pygame "game loop"
 import pygame
 
