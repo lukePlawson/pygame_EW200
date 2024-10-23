@@ -3,9 +3,18 @@ import pygame
 
 # pygame setup
 pygame.init()
-screen = pygame.display.set_mode((800, 600))
+
+HEIGHT = 600
+WIDTH = 800
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 running = True
+
+background=pygame.Surface((WIDTH,HEIGHT))
+background.fill(0)
+water=pygame.image.load('assets/PNG/Retina/Tiles/tile_73.png')
+TILE_SIZE=water.get_width()
+
 
 while running:
     # poll for events
@@ -14,8 +23,9 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    # fill the screen with a color to wipe away anything from last frame
-    screen.fill("purple")
+    for x in range(0,WIDTH,TILE_SIZE):
+        for y in range(0,HEIGHT, TILE_SIZE):
+            background.blit(water, (x,y))
 
     # RENDER YOUR GAME HERE
 
