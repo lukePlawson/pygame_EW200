@@ -11,10 +11,9 @@ clock = pygame.time.Clock()
 running = True
 
 background=pygame.Surface((WIDTH,HEIGHT))
-background.fill(0)
-water=pygame.image.load('assets/PNG/Retina/Tiles/tile_73.png')
+background.fill((50,50,50))
+water = pygame.image.load('assets/PNG/Retina/Tiles/tile_73.png')
 TILE_SIZE=water.get_width()
-
 
 while running:
     # poll for events
@@ -22,16 +21,22 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+    
 
     for x in range(0,WIDTH,TILE_SIZE):
         for y in range(0,HEIGHT, TILE_SIZE):
             background.blit(water, (x,y))
 
+
+    screen.blit(background,(0,0))
+
+
     # RENDER YOUR GAME HERE
 
     # flip() the display to put your work on screen
     pygame.display.flip()
-
     clock.tick(60)  # limits FPS to 60
 
 pygame.quit()
+
+
