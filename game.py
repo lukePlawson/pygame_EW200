@@ -12,8 +12,8 @@ running = True
 
 background=pygame.Surface((WIDTH,HEIGHT))
 background.fill((50,50,50))
-water = pygame.image.load('assets/PNG/Retina/Tiles/tile_73.png')
-TILE_SIZE=water.get_width()
+land = pygame.image.load('assets/PNG/Retina/Tiles/tile_24.png')
+TILE_SIZE=land.get_width()
 
 while running:
     # poll for events
@@ -25,7 +25,7 @@ while running:
 
     for x in range(0,WIDTH,TILE_SIZE):
         for y in range(0,HEIGHT, TILE_SIZE):
-            background.blit(water, (x,y))
+            background.blit(land, (x,y))
 
 
     screen.blit(background,(0,0))
