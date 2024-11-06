@@ -4,17 +4,20 @@ import pygame
 # pygame setup
 pygame.init()
 
+#sets up the screen of the game, clock
 HEIGHT = 600
 WIDTH = 800
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
-running = True
 
+#Sets background
 background=pygame.Surface((WIDTH,HEIGHT))
 background.fill((50,50,50))
 land = pygame.image.load('assets/PNG/Retina/Tiles/tile_24.png')
 TILE_SIZE=land.get_width()
 
+#runs program
+running = True
 while running:
     # poll for events
     # pygame.QUIT event means the user clicked X to close your window
