@@ -11,6 +11,17 @@ WIDTH = 800
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 
+#new screen alteration
+log_list=[['g','g','g','g','g','g'],
+          ['g','d','d','d','d','g'],
+          ['g','d','g','g','d','g'],
+          ['g','d','g','g','d','g'],
+          ['g','d','g','g','d','g'],
+          ['g','d','g','g','d','g'],
+          ['g','d','g','g','d','g'],
+          ['g','d','d','d','d','g'],
+          ['g','g','g','g','g','g']]
+
 # Set up background
 background = pygame.Surface((WIDTH, HEIGHT))
 background.fill((50, 50, 50))
