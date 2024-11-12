@@ -9,5 +9,3 @@ class Bullet(pygame.sprite.Sprite):
         self.image=pygame.image.load()
 
 
-    def update():
-        
