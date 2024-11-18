@@ -3,7 +3,7 @@ import math
 
 #This class is for the truck and will do all functions related to it
 class Truck():
-    def __init__(self, x, y, theta=270, speed=19):
+    def __init__(self, x, y, theta=270, speed=1):
         self.x = x
         self.y = y
         self.speed = speed
