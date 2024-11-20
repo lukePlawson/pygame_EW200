@@ -3,7 +3,7 @@ import math
 
 #This class is for the truck and will do all functions related to it
 class Truck():
-    def __init__(self, x, y, theta=270, speed=1):
+    def __init__(self, x, y, theta=0, speed=1):
         self.x = x
         self.y = y
         self.speed = speed
@@ -28,14 +28,14 @@ class Truck():
             self.y += y_dot
 
         if k[pygame.K_LEFT]:
-            self.degrees += 5  # Rotate left
+            self.degrees += 3  # Rotate left
             self.radians = self.deg_to_rad(self.degrees)
 
         if k[pygame.K_RIGHT]:
-            self.degrees -= 5  # Rotate right
+            self.degrees -= 3 # Rotate right
             self.radians = self.deg_to_rad(self.degrees)
 
-        #clamps the truck to only allow values on the screen size
+        #clamps the truck to only allow values on the screen size. 
         self.x = self.clamp_screen(self.x, self.rect.width//2, self.screen_width-self.rect.width//2)
         self.y = self.clamp_screen(self.y, self.rect.height//2, self.screen_height-self.rect.height//2)
 
@@ -54,3 +54,6 @@ class Truck():
     #sets and returns value to be called with the update function above
     def clamp_screen(self, value, min_val, max_val):
         return max(min_val, min(value, max_val))
+    
+    
+
