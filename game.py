@@ -61,11 +61,6 @@ TILE_SIZE = land.get_width() #can be called for width or height of tiles b/c squ
 #Create a truck at the Start line of the track
 truck = Truck(410, 67)
 
-#Start button stuff
-start = pygame.image.load('assets3/Sprites/flat-dark/flatDark41.png')
-start_b = start.get_rect(center=(WIDTH//2,HEIGHT//2))
-
-
 #Countdown for the race
 countdown=10
 cdown = False  # Set to True when countdown starts
@@ -80,16 +75,6 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-
-
-    if event.type == pygame.MOUSEBUTTONDOWN: #When start button gets pressed start countdown
-        if start_b.collidepoint(event.pos):
-            cdown = True #Starts countdown
-    
-
-
-
-
 #############   BACKGROUND    #########################
     #Fill background tiles based on log_list above
     for y in range(len(log_list)):  
@@ -101,9 +86,6 @@ while running:
             elif tile == 't':
                 background.blit(track,(x*TILE_SIZE, y*TILE_SIZE))
 
-    #Blits start button on the screen after the background is in
-    if not start_clicked:
-        background.blit(start, start_b)
 #######################################################
 
 ##############    CONSTANT UPDATES    ################
