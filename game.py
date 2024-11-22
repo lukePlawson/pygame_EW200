@@ -1,3 +1,4 @@
+#Imports
 import pygame
 import math
 from truck import Truck
@@ -60,6 +61,7 @@ TILE_SIZE = land.get_width() #can be called for width or height of tiles b/c squ
 black=(0,0,0)
 white=(255,255,255)
 
+##############Instructions screen #################################################
 def instructions(screen):
     screen.fill(black) #Makes screen black
     instructions = [
@@ -79,10 +81,9 @@ def instructions(screen):
     spacing = 30
     for j in range(len(instructions)):
         font_surf = i_font.render(instructions[j], True, white)
-        font_rect = font_surf.get_rect()                            #gets the rect
+        font_rect = font_surf.get_rect()                           #gets the rect
         font_rect.center = (WIDTH//2, spacing + j * spacing)       #centers it
         screen.blit(font_surf, font_rect)                          #blits to screen
-
 
 flag=1
 while flag:
@@ -95,17 +96,19 @@ while flag:
 
     instructions(screen)
     pygame.display.flip()
-
-
-#Create a truck at the Start line of the track
-truck = Truck(410, 67)
-
+##########################################
+################    Starts Countdown #############
 #Countdown for the race
 countdown=10
 cdown = False  # Set to True when countdown starts
 start_clicked = False  # Track if the start button was clicked
 
-################## GAME LOOP #################################
+
+
+#Create a truck at the Start line of the track
+truck = Truck(410, 67)
+
+################## GAME LOOP #####################################################################################
 #Run the program to display and update pygame
 running = True
 while running:
