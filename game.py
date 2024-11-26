@@ -99,16 +99,27 @@ while flag:
 ##########################################
 ################    Starts Countdown #############
 #Countdown for the race
-countdown=10
+countdown=[10,9,8,7,6,5,4,3,2,1,"GO"]
 cdown = False  # Set to True when countdown starts
 start_clicked = False  # Track if the start button was clicked
 
-
+flagger=True
+while flagger:
+    i_font = pygame.font.Font('assets4/Fonts/Kenney Pixel.ttf',size=30)
+    spacing = 30
+    for j in range(len(countdown)):
+        font_surf = i_font.render(countdown[j], True, white)
+        font_rect = font_surf.get_rect()                           #gets the rect
+        font_rect.center = (WIDTH//2, spacing + j * spacing)       #centers it
+        screen.blit(font_surf, font_rect)                          #blits to screen
+    
+    flagger=False
+    
 
 #Create a truck at the Start line of the track
 truck = Truck(410, 67)
 
-################## GAME LOOP #####################################################################################
+################## GAME LOOP ####################################################
 #Run the program to display and update pygame
 running = True
 while running:
