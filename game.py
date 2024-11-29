@@ -2,6 +2,7 @@
 import pygame
 import math
 from truck import Truck
+import time
 
 # pygame setup
 pygame.init()
@@ -99,19 +100,27 @@ while flag:
 ##########################################
 ################    Starts Countdown #############
 #Countdown for the race
-countdown=[10,9,8,7,6,5,4,3,2,1,"GO"]
+countdown=["10",'9','8','7','6','5','4','3','2','1',"GO"]
 cdown = False  # Set to True when countdown starts
 start_clicked = False  # Track if the start button was clicked
 
 flagger=True
 while flagger:
-    i_font = pygame.font.Font('assets4/Fonts/Kenney Pixel.ttf',size=30)
-    spacing = 30
+    
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            quit()
+
+    screen.fill(black)
+    i_font = pygame.font.Font('assets4/Fonts/Kenney Pixel.ttf',size=100)
     for j in range(len(countdown)):
         font_surf = i_font.render(countdown[j], True, white)
         font_rect = font_surf.get_rect()                           #gets the rect
-        font_rect.center = (WIDTH//2, spacing + j * spacing)       #centers it
+        font_rect.center = (WIDTH//2,HEIGHT//2)       #centers it
         screen.blit(font_surf, font_rect)                          #blits to screen
+
+        pygame.time.delay(1000)
     
     flagger=False
     
@@ -140,6 +149,7 @@ while running:
                 background.blit(track,(x*TILE_SIZE, y*TILE_SIZE))
 
 ############
+
 
 ##############    CONSTANT UPDATES    
     keys = pygame.key.get_pressed()    # Get key presses for truck movement
