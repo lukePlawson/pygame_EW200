@@ -83,7 +83,7 @@ def instructions(screen):
     for j in range(len(instructions)):
         font_surf = i_font.render(instructions[j], True, white)
         font_rect = font_surf.get_rect()                           #gets the rect
-        font_rect.center = (WIDTH//2, spacing + j * spacing)       #centers it
+        font_rect.center = (WIDTH//2, spacing+ j*spacing)       #centers it
         screen.blit(font_surf, font_rect)                          #blits to screen
 
 flag=1
@@ -100,29 +100,28 @@ while flag:
 ##########################################
 ################    Starts Countdown #############
 #Countdown for the race
-countdown=["10",'9','8','7','6','5','4','3','2','1',"GO"]
-cdown = False  # Set to True when countdown starts
-start_clicked = False  # Track if the start button was clicked
+countdown=["10",'9','8','7','6','5','4','3','2','1',"... wont display"]
 
-flagger=True
+screen.fill(black)
+spacing=45
+flagger=1
 while flagger:
-    
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             quit()
-
-    screen.fill(black)
-    i_font = pygame.font.Font('assets4/Fonts/Kenney Pixel.ttf',size=100)
+    i_font2 = pygame.font.Font('assets4/Fonts/Kenney Pixel.ttf',size=100)
     for j in range(len(countdown)):
-        font_surf = i_font.render(countdown[j], True, white)
-        font_rect = font_surf.get_rect()                           #gets the rect
-        font_rect.center = (WIDTH//2,HEIGHT//2)       #centers it
-        screen.blit(font_surf, font_rect)                          #blits to screen
+        font_surf2 = i_font2.render(countdown[j], True, white)
+        font_rect2 = font_surf2.get_rect()                           #gets the rect
+        font_rect2.center = (WIDTH//2, spacing+ j*spacing)                     #centers it
+        screen.blit(font_surf2, font_rect2)                          #blits to screen
 
         pygame.time.delay(1000)
+        pygame.display.update()
     
-    flagger=False
+    flagger=0
     
 
 #Create a truck at the Start line of the track
