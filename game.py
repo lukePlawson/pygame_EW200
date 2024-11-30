@@ -102,31 +102,31 @@ while flag:
 
 ################    Starts Countdown #############
 #Countdown for the race
-countdown=["10",'9','8','7','6','5','4','3','2','1',"... wont display"]
+countdown=["10",'9','8','7','6','5','4','3','2','1',"GO"]
 
-def countdown_screen(screen, i_font2)
-    
+def countdown_screen(screen, i_font2):
+    screen.fill(black)
+    spacing=45
 
-
-screen.fill(black)
-spacing=45
-flagger=1
-while flagger:
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            quit()
-    i_font2 = pygame.font.Font('assets4/Fonts/Kenney Pixel.ttf',size=100)
     for j in range(len(countdown)):
         font_surf2 = i_font2.render(countdown[j], True, white)
         font_rect2 = font_surf2.get_rect()                           #gets the rect
-        font_rect2.center = (WIDTH//2, spacing+ j*spacing)                     #centers it
+        font_rect2.center = (WIDTH//2, spacing+ j*spacing)           #centers it
         screen.blit(font_surf2, font_rect2)                          #blits to screen
 
         pygame.time.delay(1000)
         pygame.display.update()
-    
+
+
+
+flagger=1
+i_font2 = pygame.font.Font('assets4/Fonts/Kenney Pixel.ttf',size=100)
+while flagger:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            quit()
+    countdown_screen(screen, i_font2)
     flagger=0
     
 
