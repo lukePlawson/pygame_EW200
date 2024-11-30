@@ -59,6 +59,7 @@ background.fill((50, 50, 50))
 land = pygame.image.load('assets2/Tiles/tile_0001.png')
 track = pygame.image.load('assets2/Tiles/tile_0130.png')
 TILE_SIZE = land.get_width() #can be called for width or height of tiles b/c squares
+print(TILE_SIZE)
 black=(0,0,0)
 white=(255,255,255)
 
@@ -125,7 +126,7 @@ while flagger:
     
 
 #Create a truck at the Start line of the track
-truck = Truck(410, 67)
+truck = Truck(410, 67, log_list)
 
 ################## GAME LOOP ####################################################
 #Run the program to display and update pygame

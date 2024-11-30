@@ -8,13 +8,27 @@ class Truck():
         self.y = y
         self.speed = speed
         self.degrees = theta  # degrees
-        self.radians = math.radians(theta) #duh radians
+        self.radians = math.radians(theta) #radians 
         self.image = pygame.image.load('assets2/Tiles/tile_0168.png')  # Replace with the correct image
         self.rect = self.image.get_rect(center=(self.x, self.y))
         self.screen_width = 800
         self.screen_height = 600
+        self.tile_size=16 #size of grass and track width /heught
 
-    def update(self, k):
+    def update(self, k, log_list):
+        
+        ####For checkingh grass/track ##########
+        #Checks the truck to see if its on grass or track
+        tile_x = int(self.x // self.tile_size)
+        tile_y = int(self.y // self.tile_size)
+        if self.on_grass(tile_x, tile_y, log_list):
+            self.speed = 0.2
+        else:
+            self.speed = 1
+
+
+
+        ### for checking key movements
         if k[pygame.K_UP]: #Move forward
             x_dot = math.cos(self.radians) * self.speed
             y_dot = math.sin(self.radians) * self.speed
@@ -34,6 +48,7 @@ class Truck():
         if k[pygame.K_RIGHT]:
             self.degrees -= 3 # Rotate right
             self.radians = self.deg_to_rad(self.degrees)
+
 
         #clamps the truck to only allow values on the screen size. 
         self.x = self.clamp_screen(self.x, self.rect.width//2, self.screen_width-self.rect.width//2)
@@ -55,5 +70,11 @@ class Truck():
     def clamp_screen(self, value, min_val, max_val):
         return max(min_val, min(value, max_val))
     
+    def on_grass(self, tile_x, tile_y, log_list):
+    #Check if the current tile is 'g'
+        if       (tile_y >= 0 and tile_y < len(log_list))      and (tile_x >= 0 and tile_x < len(log_list[tile_y])):
+            tile = log_list[tile_y][tile_x]
+            return tile == 'g'  # True if it's grass
+        return False
     
 
