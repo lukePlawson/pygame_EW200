@@ -131,7 +131,7 @@ while flagger:
     
 
 #Create a truck at the Start line of the track
-truck = Truck(410, 67, log_list)
+truck = Truck(410, 67)
 
 ################## GAME LOOP ####################################################
 #Run the program to display and update pygame
@@ -158,7 +158,7 @@ while running:
 
 ##############    CONSTANT UPDATES    
     keys = pygame.key.get_pressed()    # Get key presses for truck movement
-    truck.update(keys)      # Update the truck's position
+    truck.update(keys,log_list)      # Update the truck's position
     screen.blit(background, (0, 0))   #Blits the truck on the screen
     truck.blit(screen)     #Blits the truck on the screen
     pygame.display.flip()       #Updates the display
