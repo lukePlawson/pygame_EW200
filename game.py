@@ -99,9 +99,14 @@ while flag:
     instructions(screen)
     pygame.display.flip()
 ##########################################
+
 ################    Starts Countdown #############
 #Countdown for the race
 countdown=["10",'9','8','7','6','5','4','3','2','1',"... wont display"]
+
+def countdown_screen(screen, i_font2)
+    
+
 
 screen.fill(black)
 spacing=45
