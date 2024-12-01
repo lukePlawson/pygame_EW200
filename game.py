@@ -132,6 +132,22 @@ while flagger:
 #Create a truck at the Start line of the track
 truck = Truck(410, 67)
 
+
+
+
+
+###############
+
+
+
+
+
+
+
+
+
+
+
 ################## GAME LOOP ####################################################
 ##############################################################################
 #Run the program to display and update pygame
@@ -169,7 +185,11 @@ while running:
     keys = pygame.key.get_pressed()    # Get key presses for truck movement
     screen.blit(background, (0, 0))   #Blits the background
     screen.blit(timer_surface, (620, 500)) #Displays time at a location on the screen
-    truck.update(keys,log_list)      # Update the truck's position
+    
+    if truck.update(keys,log_list)==True: #Haults game if its on finish
+        running=False
+    truck.update(keys,log_list)      # Update the truck's position if not on Finish
+
     truck.blit(screen)     #Blits the truck on the screen
     pygame.display.flip()       #Updates the display
     clock.tick(60)    #Limits FPS to 60

@@ -17,6 +17,10 @@ class Truck():
 
     def update(self, k, log_list):
 
+        ###CHECKS FOR FINISH
+        if self.on_finish(tile_x, tile_y, log_list):
+            return True
+
         ####For checkingh grass/track ##########
         #Checks the truck to see if its on grass or track
         tile_x = int(self.x // self.tile_size)
@@ -74,23 +78,23 @@ class Truck():
     
     def on_grass(self, tile_x, tile_y, log_list):
     #Check if the current tile is 'g'
-        if       (tile_y >= 0 and tile_y < len(log_list)) and (tile_x >= 0 and tile_x < len(log_list[tile_y])):
+        if (tile_y >= 0 and tile_y < len(log_list)) and (tile_x >= 0 and tile_x < len(log_list[tile_y])):
             tile = log_list[tile_y][tile_x]
             return tile == 'g'  # True if it's grass
         return False
     
     def on_water(self, tile_x, tile_y, log_list):
     #Check if the current tile is 's'
-        if       (tile_y >= 0 and tile_y < len(log_list)) and (tile_x >= 0 and tile_x < len(log_list[tile_y])):
+        if (tile_y >= 0 and tile_y < len(log_list)) and (tile_x >= 0 and tile_x < len(log_list[tile_y])):
             tile = log_list[tile_y][tile_x]
             return tile == 's'  # True if it's water
         return False
     
 
     def on_finish(self, tile_x, tile_y, log_list):
-    #Check if the current tile is ''
-        if       (tile_y >= 0 and tile_y < len(log_list)) and (tile_x >= 0 and tile_x < len(log_list[tile_y])):
+    #Check if the current tile is 'f'
+        if (tile_y >= 0 and tile_y < len(log_list)) and (tile_x >= 0 and tile_x < len(log_list[tile_y])):
             tile = log_list[tile_y][tile_x]
-            return tile == ''  # True if it's water
+            return tile == 'f'  # True if it's finish line
         return False
 
