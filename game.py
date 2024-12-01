@@ -14,27 +14,27 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 
 #Track display
-log_list=[['g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
-          ['g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
-          ['g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
-          ['g','g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','s','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g','g','g'],
-          ['g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','s','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g'],
-          ['g','g','g','t','t','t','t','t','t','t','t','t','t','t','g','g','t','t','t','t','t','t','t','s','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g'],
-          ['g','g','g','t','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','t','t','g','g','g'],
-          ['g','g','g','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','t','g','g'],
-          ['g','g','g','t','t','t','g','g','g','g','g','g','g','g','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','g'],
-          ['g','g','g','t','g','t','g','g','g','g','g','g','g','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','g'],
-          ['g','g','g','t','g','t','g','g','g','g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','g'],
+log_list=[['g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','s','s','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
+          ['g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','g','g','g','g','g','g','g','g','s','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
+          ['g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','g','g','g','g','g','g','s','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
+          ['g','g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','','s','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g','g','g'],
+          ['g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','','s','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g'],
+          ['g','g','g','t','t','t','t','t','t','t','t','t','t','t','g','g','t','t','t','t','t','t','t','','s','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g'],
+          ['g','g','g','t','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','s','s','s','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','t','t','g','g','g'],
+          ['g','g','g','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','s','s','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','t','g','g'],
+          ['g','g','g','t','t','t','g','g','g','g','g','g','g','g','t','t','t','g','g','g','g','g','g','g','g','g','g','s','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','g'],
+          ['g','g','g','t','g','t','g','g','g','g','g','g','g','t','t','t','t','t','t','t','t','t','g','g','g','g','g','s','s','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','g'],
+          ['g','g','g','t','g','t','g','g','g','g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','s','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','g'],
           ['g','g','g','t','t','t','g','g','g','g','g','g','t','t','t','t','t','t','t','t','g','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','g','g'],
           ['g','g','g','t','t','t','g','g','g','g','g','g','t','t','t','g','g','g','g','g','g','g','g','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','g','g'],
           ['g','g','g','g','t','g','g','g','g','g','g','g','t','t','t','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g','g','g','t','t','t','t','g','g','g'],
           ['g','g','g','g','t','g','g','g','g','g','g','g','t','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','g','g','g','g','t','t','t','t','t','t','g','g','g','g'],
           ['g','g','g','g','t','g','g','g','g','g','g','g','g','t','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g'],
-          ['g','g','g','t','t','t','g','g','g','g','g','g','g','g','g','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g'],
-          ['g','g','g','t','t','t','g','g','g','g','g','g','g','g','g','g','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g','g','g'],
-          ['g','g','g','t','g','t','g','g','g','g','g','g','g','g','g','g','t','t','t','t','g','g','g','g','g','g','g','g','g','g','g','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
-          ['g','g','g','t','g','t','g','g','g','g','g','g','g','g','g','t','t','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
-          ['g','g','g','t','t','t','g','g','g','g','g','g','g','g','t','t','t','t','t','g','g','g','g','g','g','g','g','g','g','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
+          ['g','g','g','t','t','t','g','g','g','g','g','g','g','g','g','t','t','t','g','g','g','g','s','s','s','g','g','g','g','g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g'],
+          ['g','g','g','t','t','t','g','g','g','g','g','g','g','g','g','g','t','t','t','g','g','g','s','s','s','s','g','g','g','g','g','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g','g','g'],
+          ['g','g','g','t','g','t','g','g','g','g','g','g','g','g','g','g','t','t','t','t','g','g','g','s','s','s','g','g','g','g','g','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
+          ['g','g','g','t','g','t','g','g','g','g','g','g','g','g','g','t','t','t','t','t','g','g','s','s','s','s','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
+          ['g','g','g','t','t','t','g','g','g','g','g','g','g','g','t','t','t','t','t','g','g','g','s','s','s','s','g','g','g','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
           ['g','g','g','t','t','t','g','g','g','g','g','g','g','t','t','t','t','t','g','g','g','g','g','g','g','g','g','g','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
           ['g','g','g','g','t','g','g','g','g','g','g','g','t','t','t','t','t','g','g','g','g','g','g','g','g','g','g','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
           ['g','g','g','g','t','g','g','g','g','g','g','g','t','t','t','t','g','g','g','g','g','g','g','g','g','g','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
@@ -58,7 +58,7 @@ background = pygame.Surface((WIDTH, HEIGHT))
 background.fill((50, 50, 50))
 land = pygame.image.load('assets2/Tiles/tile_0001.png')
 track = pygame.image.load('assets2/Tiles/tile_0130.png')
-startFinLine= pygame.image.load('assets2/Tiles/tile_0037.png')
+water= pygame.image.load('assets2/Tiles/tile_0037.png')
 TILE_SIZE = land.get_width() #can be called for width or height of tiles b/c squares
 print(TILE_SIZE)
 black=(0,0,0)
@@ -103,8 +103,8 @@ while flag:
 
 ################    Starts Countdown #############
 #Countdown for the race
-countdown=["10",'9','8','7','6','5','4','3','2','1',"GO"]
-
+countdown=['2','1',"GO"]
+#"10",'9','8','7','6','5','4','3',
 def countdown_screen(screen, i_font2):
     screen.fill(black)
     spacing=45
@@ -141,16 +141,7 @@ running = True
 time1=pygame.time.get_ticks()
 time2=0
 while running:
-    ################ Gives a time  and displays this
-    time2=(pygame.time.get_ticks()-time1)/1000
-
-    timer= f'{time2:.2f}' #.2 cuts to 2 decimal places
-
-    timer_surface = i_font2.render(timer, True, white)
-    screen.blit(timer_surface, (10, 10),25)
-
-
-    # Poll for events
+    #Poll for events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -166,17 +157,28 @@ while running:
             elif tile == 't':
                 background.blit(track,(x*TILE_SIZE, y*TILE_SIZE))
             elif tile== 's':
-                background.blit(startFinLine,(x*TILE_SIZE, y*TILE_SIZE))
+                background.blit(water,(x*TILE_SIZE, y*TILE_SIZE))
 
 ############
-
+    ################ Gives a time information
+    time2=(pygame.time.get_ticks()-time1)/1000
+    timer= f'{time2:.2f}' #.2 cuts to 2 decimal places
+    timer_surface = i_font2.render(timer, True, black)
 
 ##############    CONSTANT UPDATES    
     keys = pygame.key.get_pressed()    # Get key presses for truck movement
+    screen.blit(background, (0, 0))   #Blits the background
+    screen.blit(timer_surface, (620, 500)) #Displays time at a location on the screen
     truck.update(keys,log_list)      # Update the truck's position
-    screen.blit(background, (0, 0))   #Blits the truck on the screen
     truck.blit(screen)     #Blits the truck on the screen
     pygame.display.flip()       #Updates the display
     clock.tick(60)    #Limits FPS to 60
 
+
+
+
+
+
 pygame.quit()
+
+
