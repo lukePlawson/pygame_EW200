@@ -100,7 +100,6 @@ while flag:
     instructions(screen)
     pygame.display.flip()
 ##########################################
-
 ################    Starts Countdown #############
 #Countdown for the race
 countdown=['2','1',"GO"]
@@ -133,20 +132,15 @@ while flagger:
 truck = Truck(410, 67)
 
 
-
-
-
-###############
-
-
-
-
-
-
-
-
-
-
+###############    FInish screen
+def gameover(screen, time2):
+    font_over=pygame.font.Font('assets4/Fonts/Kenney Pixel.ttf', 50)
+    message= f"GAME OVER. Your Time Was {time2:.2f}s"
+    m_surf= font_over.render(message, True, white)
+    m_rect= m_surf.get_rect(center=(WIDTH // 2, HEIGHT // 2))
+    screen.blit(m_surf,m_rect)
+    pygame.display.flip()
+    pygame.time.delay(5000) #5 seconds
 
 ################## GAME LOOP ####################################################
 ##############################################################################
@@ -188,6 +182,7 @@ while running:
     
     if truck.update(keys,log_list)==True: #Haults game if its on finish
         running=False
+        gameover(screen,time2)
     truck.update(keys,log_list)      # Update the truck's position if not on Finish
 
     truck.blit(screen)     #Blits the truck on the screen

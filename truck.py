@@ -16,21 +16,20 @@ class Truck():
         self.tile_size=16 #size of grass and track width /heught
 
     def update(self, k, log_list):
-
-        ###CHECKS FOR FINISH
-        if self.on_finish(tile_x, tile_y, log_list):
-            return True
-
         ####For checkingh grass/track ##########
         #Checks the truck to see if its on grass or track
         tile_x = int(self.x // self.tile_size)
         tile_y = int(self.y // self.tile_size)
         if self.on_grass(tile_x, tile_y, log_list):
-            self.speed = 0.2
+            self.speed = 0.1
         elif self.on_water(tile_x, tile_y, log_list):
-            self.speed = 0.01
+            self.speed = 0.005
         else:
-            self.speed = 1
+            self.speed = .5
+
+        ###CHECKS FOR FINISH
+        if self.on_finish(tile_x, tile_y, log_list):
+            return True
 
 
 
@@ -95,6 +94,5 @@ class Truck():
     #Check if the current tile is 'f'
         if (tile_y >= 0 and tile_y < len(log_list)) and (tile_x >= 0 and tile_x < len(log_list[tile_y])):
             tile = log_list[tile_y][tile_x]
-            return tile == 'f'  # True if it's finish line
+            return tile == 'f'  #True if it's finish line
         return False
-
