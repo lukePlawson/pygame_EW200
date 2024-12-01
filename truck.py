@@ -80,9 +80,17 @@ class Truck():
         return False
     
     def on_water(self, tile_x, tile_y, log_list):
-    #Check if the current tile is 'g'
+    #Check if the current tile is 's'
         if       (tile_y >= 0 and tile_y < len(log_list)) and (tile_x >= 0 and tile_x < len(log_list[tile_y])):
             tile = log_list[tile_y][tile_x]
             return tile == 's'  # True if it's water
+        return False
+    
+
+    def on_finish(self, tile_x, tile_y, log_list):
+    #Check if the current tile is ''
+        if       (tile_y >= 0 and tile_y < len(log_list)) and (tile_x >= 0 and tile_x < len(log_list[tile_y])):
+            tile = log_list[tile_y][tile_x]
+            return tile == ''  # True if it's water
         return False
 
