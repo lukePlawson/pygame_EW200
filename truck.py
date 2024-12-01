@@ -23,6 +23,8 @@ class Truck():
         tile_y = int(self.y // self.tile_size)
         if self.on_grass(tile_x, tile_y, log_list):
             self.speed = 0.2
+        elif self.on_water(tile_x, tile_y, log_list):
+            self.speed = 0.01
         else:
             self.speed = 1
 
@@ -72,9 +74,15 @@ class Truck():
     
     def on_grass(self, tile_x, tile_y, log_list):
     #Check if the current tile is 'g'
-        if       (tile_y >= 0 and tile_y < len(log_list))      and (tile_x >= 0 and tile_x < len(log_list[tile_y])):
+        if       (tile_y >= 0 and tile_y < len(log_list)) and (tile_x >= 0 and tile_x < len(log_list[tile_y])):
             tile = log_list[tile_y][tile_x]
             return tile == 'g'  # True if it's grass
         return False
     
+    def on_water(self, tile_x, tile_y, log_list):
+    #Check if the current tile is 'g'
+        if       (tile_y >= 0 and tile_y < len(log_list)) and (tile_x >= 0 and tile_x < len(log_list[tile_y])):
+            tile = log_list[tile_y][tile_x]
+            return tile == 's'  # True if it's water
+        return False
 
