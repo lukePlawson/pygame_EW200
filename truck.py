@@ -16,7 +16,7 @@ class Truck():
         self.tile_size=16 #size of grass and track width /heught
 
     def update(self, k, log_list):
-        
+
         ####For checkingh grass/track ##########
         #Checks the truck to see if its on grass or track
         tile_x = int(self.x // self.tile_size)

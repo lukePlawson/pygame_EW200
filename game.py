@@ -17,9 +17,9 @@ clock = pygame.time.Clock()
 log_list=[['g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
           ['g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
           ['g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
-          ['g','g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g','g','g'],
-          ['g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g'],
-          ['g','g','g','t','t','t','t','t','t','t','t','t','t','t','g','g','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g'],
+          ['g','g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','s','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g','g','g'],
+          ['g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','s','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g'],
+          ['g','g','g','t','t','t','t','t','t','t','t','t','t','t','g','g','t','t','t','t','t','t','t','s','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g'],
           ['g','g','g','t','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','t','t','g','g','g'],
           ['g','g','g','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','t','g','g'],
           ['g','g','g','t','t','t','g','g','g','g','g','g','g','g','t','t','t','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','g'],
@@ -58,6 +58,7 @@ background = pygame.Surface((WIDTH, HEIGHT))
 background.fill((50, 50, 50))
 land = pygame.image.load('assets2/Tiles/tile_0001.png')
 track = pygame.image.load('assets2/Tiles/tile_0130.png')
+startFinLine= pygame.image.load('assets2/Tiles/tile_0037.png')
 TILE_SIZE = land.get_width() #can be called for width or height of tiles b/c squares
 print(TILE_SIZE)
 black=(0,0,0)
@@ -134,9 +135,21 @@ while flagger:
 truck = Truck(410, 67)
 
 ################## GAME LOOP ####################################################
+##############################################################################
 #Run the program to display and update pygame
 running = True
+time1=pygame.time.get_ticks()
+time2=0
 while running:
+    ################ Gives a time  and displays this
+    time2=(pygame.time.get_ticks()-time1)/1000
+
+    timer= f'{time2:.2f}' #.2 cuts to 2 decimal places
+
+    timer_surface = i_font2.render(timer, True, white)
+    screen.blit(timer_surface, (10, 10),25)
+
+
     # Poll for events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -152,6 +165,8 @@ while running:
                 background.blit(land,(x*TILE_SIZE, y*TILE_SIZE))
             elif tile == 't':
                 background.blit(track,(x*TILE_SIZE, y*TILE_SIZE))
+            elif tile== 's':
+                background.blit(startFinLine,(x*TILE_SIZE, y*TILE_SIZE))
 
 ############
 
