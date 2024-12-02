@@ -9,7 +9,7 @@ class Truck():
         self.speed = speed
         self.degrees = theta  # degrees
         self.radians = math.radians(theta) #radians 
-        self.image = pygame.image.load('assets2/Tiles/tile_0168.png')  # Replace with the correct image
+        self.image = pygame.transform.rotozoom(pygame.image.load('assets5/PNG/Cars/car_blue_small_3.png'),-90,.35)
         self.rect = self.image.get_rect(center=(self.x, self.y))
         self.screen_width = 800
         self.screen_height = 600
