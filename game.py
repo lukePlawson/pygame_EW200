@@ -4,10 +4,8 @@ import math
 from truck import Truck
 import time
 
-# pygame setup
+# pygame setup # Set up the screen of the game, clock
 pygame.init()
-
-# Set up the screen of the game, clock
 HEIGHT = 600
 WIDTH = 800 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -18,7 +16,7 @@ log_list=[['g','g','g','g','g','g','g','g','g','g','s','s','s','g','g','g','g','
           ['g','g','g','g','g','g','g','g','g','s','s','g','g','g','t','t','g','g','g','g','g','g','g','g','s','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
           ['g','g','g','g','g','g','g','g','s','s','g','g','t','t','t','t','t','t','g','g','g','g','g','g','s','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
           ['g','g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','f','s','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g','g','g'],
-          ['g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','f','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g'],
+          ['g','g','g','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','f','s','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g','g'],
           ['g','g','g','t','t','t','t','t','t','t','t','t','t','t','g','g','t','t','t','t','t','t','t','f','s','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','t','g','g','g','g','g','g'],
           ['g','g','g','t','t','t','t','s','g','g','g','g','g','g','s','s','s','g','g','s','s','s','g','g','s','s','s','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','t','t','g','g','g'],
           ['g','g','g','t','t','t','g','g','s','g','g','g','s','s','s','s','s','s','s','s','g','s','s','s','s','g','s','s','g','g','g','g','g','g','g','g','g','g','g','g','g','t','t','t','t','t','t','t','g','g'],
@@ -54,13 +52,12 @@ log_list=[['g','g','g','g','g','g','g','g','g','g','s','s','s','g','g','g','g','
           ['s','s','s','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g',],          
           ]
 #Set up background
-background = pygame.Surface((WIDTH, HEIGHT))
-background.fill((50, 50, 50))
-land = pygame.image.load('assets2/Tiles/tile_0001.png')
-track = pygame.image.load('assets2/Tiles/tile_0130.png')
-water= pygame.image.load('assets2/Tiles/tile_0037.png')
+background = pygame.Surface((WIDTH, HEIGHT))                    #Creates Surface
+background.fill((50, 50, 50))                                   #fills bachgroudn
+land = pygame.image.load('assets2/Tiles/tile_0001.png')         #LAND IMAGE
+track = pygame.image.load('assets2/Tiles/tile_0130.png')        #TRACK IMAGE
+water= pygame.image.load('assets2/Tiles/tile_0037.png')         #WATER IMAGE
 TILE_SIZE = land.get_width() #can be called for width or height of tiles b/c squares
-print(TILE_SIZE)
 black=(0,0,0)
 white=(255,255,255)
 
@@ -75,7 +72,9 @@ def instructions(screen):
         '',
         'Go around the track in the fastest time possible',
         '',
-        'The grass slows you down',
+        'THE BLACK IS THE FINISH LINE',
+        '',
+        'The grass slows you down, the water does more',
         '',
         'After you press a key a 10 second timer will begin',]
     
@@ -102,8 +101,8 @@ while flag:
 ##########################################
 ################    Starts Countdown #############
 #Countdown for the race
-countdown=['2','1',"GO"]
-#"10",'9','8','7','6','5','4','3',
+countdown=['3','2','1',"GO"]
+#
 def countdown_screen(screen, i_font2):
     screen.fill(black)
     spacing=45
