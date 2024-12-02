@@ -136,11 +136,38 @@ truck = Truck(410, 67)
 def gameover(screen, time2):
     font_over=pygame.font.Font('assets4/Fonts/Kenney Pixel.ttf', 50)
     message= f"GAME OVER. Your Time Was {time2:.2f}s"
-    m_surf= font_over.render(message, True, white)
-    m_rect= m_surf.get_rect(center=(WIDTH // 2, HEIGHT // 2))
+    m_surf= font_over.render(message, True, white) #can change
+    m_rect= m_surf.get_rect(center=(WIDTH//2, HEIGHT//2)) #alwasy this
     screen.blit(m_surf,m_rect)
+
+
+    file_path = 'highscore.txt' 
+    original_high = high_score(file_path)
+    if time2<original_high:
+        message= f"NEW HIGH SCORE: {time2:.2f}s!"
+        m_surf= font_over.render(message, True, white)
+        screen.blit(m_surf, (WIDTH//2, HEIGHT//2   +50))
+        w_high_score(file_path, time2)
+    else:
+        message= f"Current High Score: {original_high:.2f}s"
+        m_surf = font_over.render(message, True, white)
+        screen.blit(m_surf, (WIDTH // 2, HEIGHT //2  +50)) 
+        
     pygame.display.flip()
     pygame.time.delay(5000) #5 seconds
+
+######################## HIGH SCORE or not
+def high_score(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            return float(file.read())
+    except FileNotFoundError:
+        return float(10000) #Returns a beatable score if theres no file
+    
+def w_high_score(file_path, new_high_score):
+    with open(file_path, 'w') as file:
+        file.write(f"{new_high_score:.2f}")
+
 
 ################## GAME LOOP ####################################################
 ##############################################################################
@@ -188,12 +215,4 @@ while running:
     truck.blit(screen)     #Blits the truck on the screen
     pygame.display.flip()       #Updates the display
     clock.tick(60)    #Limits FPS to 60
-
-
-
-
-
-
 pygame.quit()
-
-

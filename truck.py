@@ -31,8 +31,6 @@ class Truck():
         if self.on_finish(tile_x, tile_y, log_list):
             return True
 
-
-
         ### for checking key movements
         if k[pygame.K_UP]: #Move forward
             x_dot = math.cos(self.radians) * self.speed
