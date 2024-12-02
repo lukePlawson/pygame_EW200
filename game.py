@@ -11,7 +11,7 @@ WIDTH = 800
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 
-#Track display
+#Track display     g is grass,  t is track,     s is water,     f is finish line
 log_list=[['g','g','g','g','g','g','g','g','g','g','s','s','s','g','g','g','g','g','g','g','g','g','g','s','s','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
           ['g','g','g','g','g','g','g','g','g','s','s','g','g','g','t','t','g','g','g','g','g','g','g','g','s','s','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
           ['g','g','g','g','g','g','g','g','s','s','g','g','t','t','t','t','t','t','g','g','g','g','g','g','s','s','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g','g'],
@@ -58,8 +58,8 @@ land = pygame.image.load('assets2/Tiles/tile_0001.png')         #LAND IMAGE
 track = pygame.image.load('assets2/Tiles/tile_0130.png')        #TRACK IMAGE
 water= pygame.image.load('assets2/Tiles/tile_0037.png')         #WATER IMAGE
 TILE_SIZE = land.get_width() #can be called for width or height of tiles b/c squares
-black=(0,0,0)
-white=(255,255,255)
+black=(0,0,0)                                                   #black color
+white=(255,255,255)                                             #white color
 
 #Scenic images
 big_rock=pygame.image.load('assets/PNG/Retina/Tiles/tile_66.png')
@@ -86,7 +86,7 @@ def instructions(screen):
         '',
         'After you press a key a 3 second timer will begin',]
     
-
+    #This will get a font called i_font and render in the instructiuons above blitting them on the screen.
     i_font = pygame.font.Font('assets4/Fonts/Kenney Pixel.ttf',size=30)
     spacing = 30
     for j in range(len(instructions)):
@@ -95,6 +95,7 @@ def instructions(screen):
         font_rect.center = (WIDTH//2, spacing+ j*spacing)       #centers it
         screen.blit(font_surf, font_rect)                          #blits to screen
 
+#this will wait for a key to be pressed and then it will quit out pf the screen and move on
 flag=1
 while flag:
     for event in pygame.event.get():
@@ -111,10 +112,10 @@ while flag:
 #Countdown for the race
 countdown=['3','2','1',"GO"]
 
+
 def countdown_screen(screen, i_font2):
     screen.fill(black)
     spacing=45
-
     for j in range(len(countdown)):
         font_surf2 = i_font2.render(countdown[j], True, white)
         font_rect2 = font_surf2.get_rect()                           #gets the rect
@@ -124,6 +125,7 @@ def countdown_screen(screen, i_font2):
         pygame.time.delay(1000)
         pygame.display.update()
 
+#Prints onto the screen the countdown and then delays for a second and disappeares then presenting following code
 flagger=1
 i_font2 = pygame.font.Font('assets4/Fonts/Kenney Pixel.ttf',size=100)
 while flagger:
@@ -149,14 +151,14 @@ def gameover(screen, time2):
 
 
     file_path = 'highscore.txt' 
-    original_high = high_score(file_path)
-    if time2<original_high:
-        message= f"NEW HIGH SCORE: {time2:.2f}s!"
+    original_high = high_score(file_path)           #Gets high score
+    if time2<original_high:                         #If its a new better score 
+        message= f"NEW HIGH SCORE: {time2:.2f}s!"           #rewrites and displays
         m_surf= font_over.render(message, True, white)
         screen.blit(m_surf, (WIDTH//2, HEIGHT//2   +50))
         w_high_score(file_path, time2)
     else:
-        message= f"Current High Score: {original_high:.2f}s"
+        message= f"Current High Score: {original_high:.2f}s"        #Otherwise it just prints the old one
         m_surf = font_over.render(message, True, white)
         screen.blit(m_surf, (WIDTH // 2, HEIGHT //2  +50)) 
         
@@ -170,7 +172,8 @@ def high_score(file_path):
             return float(file.read())
     except FileNotFoundError:
         return float(10000) #Returns a beatable score if theres no file
-    
+
+#writes in score 
 def w_high_score(file_path, new_high_score):
     with open(file_path, 'w') as file:
         file.write(f"{new_high_score:.2f}")
