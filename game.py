@@ -68,6 +68,7 @@ bush1=pygame.image.load('assets/PNG/Retina/Tiles/tile_70.png')
 bush2=pygame.image.load('assets/PNG/Retina/Tiles/tile_71.png')
 bush3=pygame.image.load('assets/PNG/Retina/Tiles/tile_72.png')
 
+
 ##############Instructions screen #################################################
 def instructions(screen):
     screen.fill(black) #Makes screen black
@@ -201,6 +202,12 @@ while running:
                 background.blit(water,(x*TILE_SIZE, y*TILE_SIZE))
             else:
                 None
+    #SCENIC PIECES
+    background.blit(big_rock,(500,350))
+    background.blit(small_rock,(-30,-30))
+    background.blit(bush1,(80,250))
+    background.blit(bush3,(150,500))
+    background.blit(bush2,(540,100))
 
 ############
     ################ Gives a time information
@@ -208,7 +215,7 @@ while running:
     timer= f'{time2:.2f}' #.2 cuts to 2 decimal places
     timer_surface = i_font2.render(timer, True, black)
 
-##############    CONSTANT UPDATES    
+##############    CONSTANT UPDATES  
     keys = pygame.key.get_pressed()    # Get key presses for truck movement
     screen.blit(background, (0, 0))   #Blits the background
     screen.blit(timer_surface, (620, 500)) #Displays time at a location on the screen
