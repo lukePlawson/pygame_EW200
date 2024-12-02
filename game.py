@@ -76,7 +76,7 @@ def instructions(screen):
         '',
         'The grass slows you down, the water does more',
         '',
-        'After you press a key a 10 second timer will begin',]
+        'After you press a key a 3 second timer will begin',]
     
 
     i_font = pygame.font.Font('assets4/Fonts/Kenney Pixel.ttf',size=30)
